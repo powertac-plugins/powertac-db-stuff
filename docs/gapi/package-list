@@ -1,0 +1,6 @@
+DefaultPackage
+grails-app.conf
+grails-app.domain
+scripts
+src.groovy.greenbill.dbstuff
+test.integration.greenbill.dbstuff
