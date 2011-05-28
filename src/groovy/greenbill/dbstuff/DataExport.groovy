@@ -40,11 +40,11 @@ import org.apache.ddlutils.DdlUtilsException;
 public class DataExport {
 	def dataSource
 
-	def exportDiff(inputPath,outputPath){
+	def exportDiff(inputPath,outputPath,dbName=null){
 		def appCtx = ApplicationHolder.application.parentContext
 		def platform = PlatformFactory.createNewPlatformInstance(dataSource)
 
-		Database model = platform.readModelFromDatabase(null);
+		Database model = platform.readModelFromDatabase(dbName);
 		DatabaseDataDiffIO dataio = new DatabaseDataDiffIO();
 		def toCompare = appCtx.getResources(inputPath).collect{it.inputStream} as InputStream[]
 		try{
@@ -57,12 +57,12 @@ public class DataExport {
 		}
 	}
 	
-	def export(tables,outPath) {
+	def export(tables,outPath,dbName=null) {
 		def db = DbUnitUtil.getConnection(dataSource)
 		String[] tableArray = tables.split(",")
 		
 		def platform = PlatformFactory.createNewPlatformInstance(dataSource)
-		def model = platform.readModelFromDatabase(null);
+		def model = platform.readModelFromDatabase(dbName);
 		def dataio = new DatabaseDataDiffIO();
 		try{
 			dataio.writeDataToXML(platform,model, (tableArray as List), outPath)
