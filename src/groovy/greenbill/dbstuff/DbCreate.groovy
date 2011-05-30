@@ -45,7 +45,7 @@ public class DbCreate {
 		}else if (platformName.contains("mysql")){
 			dropMySql(dbname)
 			createMySql(dbname)
-		}else if (platformName.contains("HsqlDb")){
+		}else if (platformName.contains("hsqldb")){
 			dropHsql(dbname) 
 		}else throw new IllegalArgumentException("Drop and Create not supported for this databse yet")
 	}
@@ -87,9 +87,7 @@ public class DbCreate {
 		""")
 	}
 	def dropHsql(dbname) {
-		if(!ApplicationHolder.application.config.dataLoad.createUrl.contains("mem")){
-			runSql("DROP SCHEMA PUBLIC CASCADE")
-		}
+	  runSql("DROP SCHEMA PUBLIC CASCADE")
 	}
 
 	def createMsSql(dbname,path,driverClassName,url,username,password) {

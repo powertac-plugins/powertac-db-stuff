@@ -57,7 +57,7 @@ public class DataExport {
 		}
 	}
 	
-	def export(tables,outPath,dbName=null) {
+	def export(tables, outPath, dbName=null) {
 		def db = DbUnitUtil.getConnection(dataSource)
 		String[] tableArray = tables.split(",")
 		
@@ -68,11 +68,29 @@ public class DataExport {
 			dataio.writeDataToXML(platform,model, (tableArray as List), outPath)
 		}catch(e){
 			println "!!!!! error writing data"
-			e.printStackTrace() 
+			e.printStackTrace()
 		}
 	}
+
+  def export(File outputPath, dbName=null) {
+    def db = DbUnitUtil.getConnection(dataSource)
+    def platform = PlatformFactory.createNewPlatformInstance(dataSource)
+    def model = platform.readModelFromDatabase(dbName);
+    def dataio = new DatabaseDataDiffIO();
+    Writer writer
+    try{
+      writer = new FileWriter(outputPath)
+      dataio.writeDataToXML(platform, model, writer, 'UTF-8')
+    }catch(e){
+      println "!!!!! error writing data"
+      e.printStackTrace()
+    } finally {
+      writer.close()
+    }
+
+  }
 	
-	def writeTableFile(dataset,path,fileName){
+	def writeTableFile(dataset, path, fileName){
 		def _format ="xml"
 		def filepath = "${path}/${fileName}.xml"
 		(new File(path)).mkdirs()
