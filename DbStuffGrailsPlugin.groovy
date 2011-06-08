@@ -3,7 +3,7 @@ import greenbill.dataloader.*
 class DbStuffGrailsPlugin {
     // the plugin version
     def version = "0.3.0"
-    def grailsVersion = "1.1 > *"
+    def grailsVersion = "1.3 > *"
 	 def dependsOn = [:] 
 
     // resources that are excluded from plugin packaging
