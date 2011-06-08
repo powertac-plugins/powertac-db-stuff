@@ -1,7 +1,10 @@
-<plugin name='db-stuff' version='0.3.0' grailsVersion='1.1 &gt; *'>
-  <author>Joshua Burnett</author>
-  <authorEmail>joshua at 9ci com</authorEmail>
-  <title>db schema managment and data import/export. Generate generic schema files and import or export base/seed/test data into your database.</title>
+<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd'>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.grails.plugins</groupId>
+  <artifactId>db-stuff</artifactId>
+  <packaging>zip</packaging>
+  <version>0.3.0</version>
+  <name>db schema managment and data import/export. Generate generic schema files and import or export base/seed/test data into your database.</name>
   <description>		Based on DdlUtils from the Apache DB Project http://db.apache.org. 
 		Keeps the schema in a generic xml file that can then be used to creates the db schema in any of the 
 		supported databases. Data can also be extrernalized in files and then loaded via a grails script or at application startup.
@@ -11,17 +14,11 @@
 		We use it to load tables like configuration params, ACL, acegi requestmaps etc..
 		Works with Hsqldb,MsSql,MySql,Oracle,db2 and others that DdlUtils supports
 	</description>
-  <documentation>http://grails.org/DbStuff+Plugin</documentation>
-  <resources>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
-    <resource>TestTable</resource>
-    <resource>TestThis</resource>
-  </resources>
-  <dependencies>
-    <resolvers>
-      <resolver type='grailsPlugins' name='grailsPlugins' />
-    </resolvers>
-  </dependencies>
-  <behavior />
-</plugin>
+  <url>http://grails.org/DbStuff+Plugin</url>
+  <developers>
+    <developer>
+      <name>Joshua Burnett</name>
+      <email>joshua at 9ci com</email>
+    </developer>
+  </developers>
+</project>
