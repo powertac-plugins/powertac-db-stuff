@@ -1,4 +1,4 @@
-<plugin name='db-stuff' version='0.3.0' grailsVersion='1.1 &gt; *'>
+<plugin name='powertac-db-stuff' version='0.3.0' grailsVersion='1.3 &gt; *'>
   <author>Joshua Burnett</author>
   <authorEmail>joshua at 9ci com</authorEmail>
   <title>db schema managment and data import/export. Generate generic schema files and import or export base/seed/test data into your database.</title>
@@ -13,15 +13,8 @@
 	</description>
   <documentation>http://grails.org/DbStuff+Plugin</documentation>
   <resources>
-    <resource>DataSource</resource>
     <resource>UrlMappings</resource>
-    <resource>TestTable</resource>
-    <resource>TestThis</resource>
   </resources>
-  <dependencies>
-    <resolvers>
-      <resolver type='grailsPlugins' name='grailsPlugins' />
-    </resolvers>
-  </dependencies>
+  <dependencies />
   <behavior />
 </plugin>
