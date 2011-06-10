@@ -1,6 +1,6 @@
 import greenbill.dataloader.*
 
-class DbStuffGrailsPlugin {
+class PowertacDbStuffGrailsPlugin {
     // the plugin version
     def version = "0.3.0"
     def grailsVersion = "1.3 > *"
